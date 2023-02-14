@@ -5,9 +5,28 @@
   <title>Happy Valentine's</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="preloader.css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript">
+	rotate = 1;
+	function hide_preloader() { //DOM
+	rotate = 0;
+	$("#preloader").fadeOut(1000);
+	}
+	$(document).ready(function(){
+		function anim(){ $("#preloader_image").animate({left:'-1400px'}, 8000,
+		function(){ $("#preloader_image").animate({left:'0px'}, 2000 ); if(rotate==1){ anim();}  } );
+		}
+		anim();
+	});
+</script>
 </head>
-<body>
+<body onload="hide_preloader();">	
+  <div id="preloader">
+    <div>
+      <img src="loading.jpg" id="preloader_image" >
+    </div>
+  </div>
 <p>Click card to open</p>
 <div class="card__container js-card-opener">
   <div class="card">
